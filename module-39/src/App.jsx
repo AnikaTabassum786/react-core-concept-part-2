@@ -30,9 +30,9 @@ function App() {
 
   return (
     <>
-    <Suspense fallback={<h1>Loading...</h1>}>
+    {/* <Suspense fallback={<h1>Loading...</h1>}>
     <Users fetchUsers={fetchUsers}></Users>
-    </Suspense>
+    </Suspense> */}
 
     <Suspense fallback={<h2>Waiting for treat</h2>}>
     <Friends friendsPromise={friendsPromise}></Friends>
