@@ -1,5 +1,5 @@
 export default function Todo({todo}){
     return(
-        <p>{todo.title}</p>
+        <p>Todos Title: {todo.title}</p>
     )
 }

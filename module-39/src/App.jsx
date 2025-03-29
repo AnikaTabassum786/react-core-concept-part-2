@@ -7,6 +7,7 @@ import Users from './Users'
 import Friends from './Friends'
 import Posts from './Posts'
 import Todos from './Todos'
+import Albums from './Albums'
 
 const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users')
                   .then(response=>response.json())
@@ -25,11 +26,17 @@ const fetchPosts = async ()=>{
    return response.json();
  }
 
+ const fetchAlbums= async()=>{
+  const response = await fetch('https://jsonplaceholder.typicode.com/albums')
+  return response.json();
+ }
+
 function App() {
 
   const friendsPromise = fetchFriends();
   const postsPromise = fetchPosts();
-  const todosPromise = fetchTodos()
+  const todosPromise = fetchTodos();
+  const albumsPromise = fetchAlbums();
 
   const handleClick=()=>{
   alert('Click me !!! I am react function ')
@@ -55,14 +62,17 @@ function App() {
     <Friends friendsPromise={friendsPromise}></Friends>
     </Suspense> */}
 
-   <Suspense fallback={<h2>Todos coming</h2>}>
+   {/* <Suspense fallback={<h2>Todos coming</h2>}>
      <Todos todosPromise={todosPromise}></Todos>
+   </Suspense> */}
+   
+   <Suspense fallback={<h3>Albums Data Coming</h3>}>
+    <Albums albumsPromise={albumsPromise}></Albums>
    </Suspense>
-
 
     <Cricket></Cricket>
     <Counter></Counter>
-      <h1>Vite + React</h1>
+    <h1>Vite + React</h1>
       
 
 
